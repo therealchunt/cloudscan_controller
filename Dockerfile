@@ -1,5 +1,4 @@
 FROM tomcat:8.5.11 
-#-jre8-alpine
 MAINTAINER "chunt"
 
 #args used during building of this container
@@ -28,10 +27,6 @@ RUN cp -R $CC_TMP/$CC_NAME/tomcat/webapps/cloud-ctrl/ $TOMCAT_DIR/webapps/
 
 #overwrite properties file
 RUN mv $TMP_DIR/config.properties $TOMCAT_DIR/webapps/cloud-ctrl/WEB-INF/classes/
-
-#RUN sed -i '9i\ worker_auth_token=${' $TOMCAT_DIR/webapps/cloud-ctrl/WEB-INF/classes/config.properties
-#RUN sed -i '265i \CATALINA_OPTS=" -javaagent:$CATALINA_HOME/WI_Agent/lib/FortifyAgent.jar $CATALINA_OPTS"' $TOMCAT_DIR/bin/catalina.sh
-
 
 #cleanup temp dir
 RUN rm -rf $TMP_DIR
