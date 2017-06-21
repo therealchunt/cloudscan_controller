@@ -2,3 +2,4 @@ cloud-ctrl.tar
 HPE_Security*
 fortify.license
 *.properties
+!.gitignore
