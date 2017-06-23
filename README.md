@@ -5,13 +5,14 @@ Currently, swarms have not been tested with the setup, but should be able to be 
 The easist setup for multinode on the same host is to create a docker network (@see docker network --help)
 
 # Build
+Before building, update the config.properties for ssc_url and this_url.
 ```
 docker build --no-cache -t ${CS_IMG} .
 ```
 
 # Run
 ```
-docker run -p 8280:8080 --network=${NETWORK_HOST} --ip ${CS_IP} --name cs.hpe.com -d ${CS_IMG}
+docker run -p 8280:8080 --network=${NETWORK_HOST} --ip ${CS_IP} --name ${CS_CONT_NAME} -d ${CS_IMG}
 ```
 
 # Link to SSC
